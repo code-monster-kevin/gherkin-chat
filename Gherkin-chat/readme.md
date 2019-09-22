@@ -1,4 +1,4 @@
-﻿# Simple Webchat Application using Azure SignalR
+﻿# Simple Webchat Application using Azure SignalR and RESTful API
 
 ## Setup
 ### Pre-requisites
