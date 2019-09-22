@@ -1,0 +1,388 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gherkin-chat</name>
+    </assembly>
+    <members>
+        <member name="T:Gherkin_chat.Controllers.ChannelsController">
+            <summary>
+            API for Channels functions
+            </summary>
+        </member>
+        <member name="M:Gherkin_chat.Controllers.ChannelsController.#ctor(Gherkin_chat.Repositories.IMessageRepositories,AutoMapper.IMapper)">
+            <summary>
+            Constructor for Channels Controller
+            </summary>
+            <param name="messageRepositories"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:Gherkin_chat.Controllers.ChannelsController.GetAllChannels">
+            <summary>
+            Returns all the available channels
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gherkin_chat.Controllers.ChannelsController.AddChannel(System.String)">
+            <summary>
+            Create a new channel
+            </summary>
+            <param name="channel"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Gherkin_chat.Controllers.MessagesController">
+            <summary>
+            API for Messages functions
+            </summary>
+        </member>
+        <member name="M:Gherkin_chat.Controllers.MessagesController.#ctor(Microsoft.AspNetCore.SignalR.IHubContext{Gherkin_chat.SignalRHub.MessageHub},Gherkin_chat.Repositories.IMessageRepositories,AutoMapper.IMapper)">
+            <summary>
+            Constructor for Messages Controller
+            </summary>
+            <param name="messageHub"></param>
+            <param name="messageRepositories"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:Gherkin_chat.Controllers.MessagesController.GetAllMessage(System.String)">
+            <summary>
+            Returns the last 25 messages for a particular channel
+            </summary>
+            <param name="channel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gherkin_chat.Controllers.MessagesController.AddMessage(Gherkin_chat.DTO.MessageCreateDto)">
+            <summary>
+            Sends a new message to the channel
+            </summary>
+            <param name="messageDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Gherkin_chat.DTO.ChannelDto">
+            <summary>
+            ChannelDto
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.DTO.ChannelDto.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.DTO.ChannelDto.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="T:Gherkin_chat.DTO.MappingProfile">
+            <summary>
+            Mapping Profile for Automapper
+            </summary>
+        </member>
+        <member name="M:Gherkin_chat.DTO.MappingProfile.#ctor">
+            <summary>
+            Mapping Profile Constructor
+            </summary>
+        </member>
+        <member name="T:Gherkin_chat.DTO.MessageCreateDto">
+            <summary>
+            MessageCreateDto
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.DTO.MessageCreateDto.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.DTO.MessageCreateDto.Channel">
+            <summary>
+            Channel
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.DTO.MessageCreateDto.User">
+            <summary>
+            User
+            </summary>
+        </member>
+        <member name="T:Gherkin_chat.DTO.MessageDto">
+            <summary>
+            MessageDto
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.DTO.MessageDto.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.DTO.MessageDto.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.DTO.MessageDto.TimeStamp">
+            <summary>
+            TimeStamp
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.DTO.MessageDto.Channel">
+            <summary>
+            Channel
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.DTO.MessageDto.User">
+            <summary>
+            User
+            </summary>
+        </member>
+        <member name="T:Gherkin_chat.Entities.Channel">
+            <summary>
+            Channel
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.Entities.Channel.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.Entities.Channel.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="T:Gherkin_chat.Entities.GherkinDbContext">
+            <summary>
+            GherkinDbContext
+            </summary>
+        </member>
+        <member name="M:Gherkin_chat.Entities.GherkinDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Gherkin_chat.Entities.GherkinDbContext})">
+            <summary>
+            GherkinDbContext
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="P:Gherkin_chat.Entities.GherkinDbContext.Channels">
+            <summary>
+            Channels
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.Entities.GherkinDbContext.Users">
+            <summary>
+            Users
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.Entities.GherkinDbContext.Messages">
+            <summary>
+            Messages
+            </summary>
+        </member>
+        <member name="M:Gherkin_chat.Entities.GherkinDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            OnModelCreating
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="T:Gherkin_chat.Entities.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.Entities.Message.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.Entities.Message.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.Entities.Message.TimeStamp">
+            <summary>
+            TimeStamp
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.Entities.Message.ChannelId">
+            <summary>
+            ChannelId
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.Entities.Message.Channel">
+            <summary>
+            Channel
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.Entities.Message.UserId">
+            <summary>
+            UserId
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.Entities.Message.User">
+            <summary>
+            User
+            </summary>
+        </member>
+        <member name="T:Gherkin_chat.Entities.User">
+            <summary>
+            User
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.Entities.User.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.Entities.User.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="T:Gherkin_chat.Program">
+            <summary>
+            Gherkin Chat Program
+            </summary>
+        </member>
+        <member name="M:Gherkin_chat.Program.Main(System.String[])">
+            <summary>
+            Main Program
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Gherkin_chat.Program.CreateWebHostBuilder(System.String[])">
+            <summary>
+            Create Webhost
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Gherkin_chat.Repositories.IMessageRepositories">
+            <summary>
+            interface IMessageRepositories
+            </summary>
+        </member>
+        <member name="M:Gherkin_chat.Repositories.IMessageRepositories.AddUser(Gherkin_chat.Entities.User)">
+            <summary>
+            AddUser(User user);
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:Gherkin_chat.Repositories.IMessageRepositories.AddChannel(Gherkin_chat.Entities.Channel)">
+            <summary>
+            AddChannel(Channel channel);
+            </summary>
+            <param name="channel"></param>
+        </member>
+        <member name="M:Gherkin_chat.Repositories.IMessageRepositories.AddMessage(Gherkin_chat.Entities.Message)">
+            <summary>
+            AddMessage(Message message);
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Gherkin_chat.Repositories.IMessageRepositories.GetUser(System.String)">
+            <summary>
+            GetUser(string name);
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gherkin_chat.Repositories.IMessageRepositories.GetChannels">
+            <summary>
+            GetChannels();
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gherkin_chat.Repositories.IMessageRepositories.GetMessage(System.Guid)">
+            <summary>
+            GetMessage(Guid channelId);
+            </summary>
+            <param name="channelId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gherkin_chat.Repositories.IMessageRepositories.Save">
+            <summary>
+            Save()
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Gherkin_chat.Repositories.MessageRepositories">
+            <summary>
+            MessageRepositories
+            </summary>
+        </member>
+        <member name="M:Gherkin_chat.Repositories.MessageRepositories.#ctor(Gherkin_chat.Entities.GherkinDbContext)">
+            <summary>
+            MessageRepositories
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Gherkin_chat.Repositories.MessageRepositories.GetMessage(System.Guid)">
+            <summary>
+            GetMessage(Guid channelId)
+            </summary>
+            <param name="channelId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gherkin_chat.Repositories.MessageRepositories.GetChannels">
+            <summary>
+            GetChannels()
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gherkin_chat.Repositories.MessageRepositories.GetUser(System.String)">
+            <summary>
+            GetUser(string name)
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gherkin_chat.Repositories.MessageRepositories.AddChannel(Gherkin_chat.Entities.Channel)">
+            <summary>
+            AddChannel(Channel channel)
+            </summary>
+            <param name="channel"></param>
+        </member>
+        <member name="M:Gherkin_chat.Repositories.MessageRepositories.AddUser(Gherkin_chat.Entities.User)">
+            <summary>
+            AddUser(User user)
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:Gherkin_chat.Repositories.MessageRepositories.AddMessage(Gherkin_chat.Entities.Message)">
+            <summary>
+            AddMessage(Message message)
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Gherkin_chat.Repositories.MessageRepositories.Save">
+            <summary>
+            Save()
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Gherkin_chat.SignalRHub.MessageHub">
+            <summary>
+            MessageHub
+            </summary>
+        </member>
+        <member name="P:Gherkin_chat.Startup.Configuration">
+            <summary>
+            IConfigurationRoot Configuration
+            </summary>
+        </member>
+        <member name="M:Gherkin_chat.Startup.#ctor(Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Startup(IHostingEnvironment environment)
+            </summary>
+            <param name="environment"></param>
+        </member>
+        <member name="M:Gherkin_chat.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            ConfigureServices(IServiceCollection services)
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Gherkin_chat.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Configure(IApplicationBuilder app, IHostingEnvironment env)
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>

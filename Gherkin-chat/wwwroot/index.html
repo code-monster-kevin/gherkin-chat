@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+          content="Example Web site for Pickles Asia" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Gherkin Chat</title>
+</head>
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="index.html">Gherkin Chat</a>
+            <button class="navbar-toggler navbar-toggler-right"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive"
+                    aria-expanded="false"
+                    aria-label="Toggle Navigation">
+                Menu
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="p-5"></div>
+    <div class="container">
+        <div class="form-inline">
+            <input id="username" class="form-control mr-sm-2" type="text" placeholder="Enter your name" value="" />
+            <input id="channel" class="form-control mr-sm-2" type="text" placeholder="Select Or Enter A Channel" />
+            <select id="channelselect" class="dropdown">
+                <option>Select a Channel</option>
+            </select>&nbsp;
+            <button id="joinchannel" class="btn btn-success my-2 my-sm-0">Join Channel</button>
+        </div>
+    </div>
+    <div id="chatwindow" class="container mt-4 border border-dark">
+        <h3>Chat Window</h3>
+        <div class="form-inline">
+            User: <input id="currentuser" class="form-control mr-sm-2" type="text" disabled />
+            Channel: <input id="currentchannel" class="form-control mr-sm-2" type="text" disabled />
+        </div>
+        <ul id="messagesList" class="list-group border overflow-auto" style="height: 350px;">
+            <li class="list-group-item list-group-item-warning">Please join a channel</li>
+        </ul>
+        <div class="form-inline">
+            <input id="message" class="form-control mr-sm-2" type="text" placeholder="Enter a message" />
+            <button id="sendmessage" class="btn btn-success my-2 my-sm-0">Send</button>
+        </div>
+    </div>
+    <div class="p-5"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aspnet-signalr/1.1.4/signalr.min.js"></script>
+    <script src="scripts/gherkinchat.js"></script>
+</body>
+</html>
